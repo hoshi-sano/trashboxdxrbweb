@@ -2,7 +2,7 @@ require 'dxruby'
 
 # 投げるボール(紙くず)のクラス
 class Ball < Sprite
-  IMAGE = Image.new(30, 30, C_YELLOW)
+  IMAGE = Image.load('./images/ball.png')
   X_ACCELERATION = 0.9
   Y_ACCELERATION = 1
 
@@ -44,7 +44,7 @@ end
 class Cursor < Sprite
   # 円の半径
   RADIUS = 100
-  IMAGE = Image.new(30, 30, C_WHITE)
+  IMAGE = Image.load('./images/cursor.png')
 
   attr_reader :character
 
@@ -103,7 +103,7 @@ end
 
 # キャラクターのクラス
 class Character < Sprite
-  IMAGE = Image.load('./images/character.rb')
+  IMAGE = Image.load('./images/character.png')
 
   def initialize
     super(0, Window.height - IMAGE.height, IMAGE)
@@ -113,7 +113,7 @@ end
 # ゴミ箱のクラス
 # コンボやスコアの計算も兼ねる
 class TrashBox < Sprite
-  IMAGE = Image.new(50, 100, C_BLUE)
+  IMAGE = Image.load('./images/trashbox.png')
   RIGHT_EDGE = Window.width - IMAGE.width
   LEFT_EDGE = Window.width - IMAGE.width - 250
   SPEED = 3
