@@ -183,8 +183,8 @@ chara = Character.new
 cursor = Cursor.new(chara)
 gage = PowerGage.new
 tb = TrashBox.new
-sprites = [chara, tb, cursor, gage]
 balls = []
+sprites = [chara, tb, cursor, gage, balls]
 update_targets = [balls, gage, tb]
 
 playing = false
@@ -222,9 +222,7 @@ Window.loop do
     gage.show
   elsif Input.key_release?(K_Z)
     power = gage.hide
-    ball = Ball.new(power, cursor, tb)
-    balls << ball
-    sprites << ball
+    balls << Ball.new(power, cursor, tb)
   end
   Sprite.draw(sprites)
   Sprite.update(update_targets)
