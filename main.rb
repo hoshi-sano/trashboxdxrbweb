@@ -1,4 +1,4 @@
-require 'dxruby'
+require 'dxruby_wasm'
 
 # 投げるボール(紙くず)のクラス
 class Ball < Sprite
@@ -29,7 +29,7 @@ class Ball < Sprite
     miss if self.x > Window.width || self.y > Window.height
   end
 
-  def shot
+  def shot(_)
     vanish
   end
 
@@ -127,8 +127,8 @@ class TrashBox < Sprite
       @parent = parent
     end
 
-    def hit
-      @parent.hit
+    def hit(o)
+      @parent.hit(o)
     end
   end
 
@@ -166,7 +166,7 @@ class TrashBox < Sprite
     @hitbox.x += dx
   end
 
-  def hit
+  def hit(_)
     @combo += 1
     @score += BASE_SCORE * @combo * @lv
     @combo_str = "COMBO: #{@combo}" if @combo > 1
